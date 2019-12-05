@@ -1,0 +1,10 @@
+// file created at 2019-12-5
+// Auto-generated files .prettierrc
+
+{
+  "singleQuote": true,
+  "trailing-comma": false,
+  "no-submodule-imports": false,
+  "no-console": false,
+  "no-implicit-dependencies": false
+}
