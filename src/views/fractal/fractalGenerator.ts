@@ -75,7 +75,7 @@ export default class FractalGenerator {
     const c = this.lerpColor(
       this.option.startColor,
       this.option.endColor,
-      depth / this.option.depthCount);
+      (depth - 1) / this.option.depthCount);
 
     const a = (1 - depth / this.option.depthCount) * 235 + 20;
 
