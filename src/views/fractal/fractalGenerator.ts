@@ -1,6 +1,5 @@
 
-// import { p5InstanceExtensions } from 'p5';
-
+import * as p5 from 'p5';
 
 export interface FractalOption {
   depthCount: number;
@@ -19,7 +18,7 @@ export default class FractalGenerator {
   private option: FractalOption = {
     depthCount: 3,
     startColor: '#ff0000',
-    endColor: '#00ff00',
+    endColor: '#ffff00',
     branchCount: 3,
     childCount: 4,
     childAngle: 30,
@@ -29,37 +28,25 @@ export default class FractalGenerator {
     branchLength: 100,
   };
 
-  private context: CanvasRenderingContext2D;
-  public constructor(element: HTMLCanvasElement, options?: Partial<FractalOption>) {
-
-    try {
-      const ctx = element.getContext('2d');
-      if (ctx === null) {
-
-        throw new Error('Context is null');
-      }
-      this.context = ctx;
-      this.option.width = element.width;
-      this.option.height = element.height;
-    } catch (e) {
-      throw new Error('Canvas element is not defined');
-    }
+  private p: p5;
+  public constructor(p: p5, width: number, height: number) {
+    this.p = p;
+    this.option.width = width;
+    this.option.height = height;
+    this.p.createCanvas(this.option.width, this.option.height);
   }
 
-  public generate() {
-    // @ts-ignore
-    console.log(this.context);
-
-    this.context.background(0);
+  public generate(option?: Partial<FractalOption>) {
+    this.option = Object.assign(this.option, option);
+    this.p.background(0);
     const createCount = this.option.branchCount * 1;
     const diffAngle = 360 / createCount;
-
-    this.context.globalCompositeOperation = 'lighter';
     for (let i = 0; i < createCount; i++) {
-      this.drawLine(
-        this.option.width / 2,
-        this.option.height / 2, i * diffAngle,
-        this.option.branchLength, 1);
+      const x = this.option.width / 2;
+      const y = this.option.height / 2;
+      const degree = i * diffAngle;
+      const length = this.option.branchLength;
+      this.drawLine(x, y, degree, length, 1);
     }
   }
 
@@ -85,17 +72,17 @@ export default class FractalGenerator {
     const radian = degree / 180 * Math.PI;
     const x2 = x1 + Math.cos(radian) * dist;
     const y2 = y1 + Math.sin(radian) * dist;
-    const c = this.lerpColor(this.option.startColor, this.option.endColor,
+    const c = this.lerpColor(
+      this.option.startColor,
+      this.option.endColor,
       depth / this.option.depthCount);
 
-    const a = (1 - depth / this.option.depthCount) * 255;
+    const a = (1 - depth / this.option.depthCount) * 235 + 20;
 
-    // @ts-ignore
-    this.context.stroke(c.r, c.g, c.b, a);
-    // @ts-ignore
-    this.context.strokeWeight(1);
-    // @ts-ignore
-    this.context.line(x1, y1, x2, y2);
+
+    this.p.stroke(c.r, c.g, c.b, a);
+    this.p.strokeWeight(1);
+    this.p.line(x1, y1, x2, y2);
 
     // var childCount = 2; // temp
     const initAngle = degree - ((this.option.childCount - 1)
@@ -106,8 +93,5 @@ export default class FractalGenerator {
         dist * this.option.childLengthRatio, depth + 1);
     }
   }
-
-
-
 
 }
