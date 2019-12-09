@@ -4,20 +4,34 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component({})
-export default class Survey extends Vue {
+export default class SurveyColor extends Vue {
   private colors: string[] = [];
+  private selectedColor: string = '';
+  private selectedColors: string[] = [];
   private mounted() {
     for (let i = 0; i < 360; i++) {
-      // hsb to rgb
-      this.colors.push(this.HSVtoRGB(i / 360, 0.7, 0.6));
+      // hsb to rgb\
+      this.colors.push(this.HSVtoRGB(i / 360, 0.7, 0.7));
     }
-    console.log(this.colors);
   }
 
   private onClickColor(c) {
-    console.log(c);
+    this.selectedColor = c;
+  }
+
+  private onSelect() {
+    if (this.selectedColor === '') {return;}
+    this.selectedColors.push(this.selectedColor);
+    this.selectedColor = '';
+
+    if (this.selectedColors.length === 2) {
+      this.$store.commit('setSelectedColors', this.selectedColors);
+
+      this.$router.push('/survey/shape');
+    }
 
   }
+  
   private componentToHex(c) {
     const hex = c.toString(16);
     return (hex.length === 1 ? '0' + hex : hex).slice(0, 2);

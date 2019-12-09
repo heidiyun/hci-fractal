@@ -1,0 +1,19 @@
+// file created at 2019-12-5
+// Auto-generated files survey.scss
+
+
+
+.survey-question {
+    margin:auto;
+    margin-top:100px;
+    width: 100vw;
+    text-align:center;
+}
+
+.card { 
+    height:100%;
+     margin-right: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}
