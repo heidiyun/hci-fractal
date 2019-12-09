@@ -2,7 +2,6 @@
 // Auto-generated files survey.ts
 
 import { Vue, Component } from 'vue-property-decorator';
-import AOS from 'aos';
 
 @Component({})
 export default class SurveyColor extends Vue {
@@ -31,7 +30,7 @@ export default class SurveyColor extends Vue {
     if (this.selectedColors.length === 2) {
       this.$store.commit('setSelectedColors', this.selectedColors);
 
-      
+
       this.$router.push('/survey/shape');
     }
   }
@@ -41,8 +40,14 @@ export default class SurveyColor extends Vue {
     return (hex.length === 1 ? '0' + hex : hex).slice(0, 2);
   }
   private HSVtoRGB(h, s, v) {
-    // @ts-ignore
-    let r, g, b, i, f, p, q, t;
+    let r = 0;
+    let g = 0;
+    let b = 0;
+    let i = 0;
+    let f = 0;
+    let p = 0;
+    let q = 0;
+    let t = 0;
     if (arguments.length === 1) {
       (s = h.s), (v = h.v), (h = h.h);
     }

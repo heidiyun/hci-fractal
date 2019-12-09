@@ -59,9 +59,9 @@ export default class Fractal extends Vue {
       branchLength: Math.min(
         this.$refs.container.clientWidth,
         this.$refs.container.clientHeight) * 0.13,
-      childAngle: 160,
-      depthCount: 5,
-      childLengthRatio: 1,
+      childAngle: 68,
+      depthCount: 7,
+      childLengthRatio: .84,
     });
   }
 

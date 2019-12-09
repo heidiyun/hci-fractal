@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 interface State {
-   selectedColors : string[] | undefined;
+  selectedColors: string[] | undefined;
 }
 
 export default new Vuex.Store<State>({

@@ -5,8 +5,7 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component({})
 export default class App extends Vue {
-  private mounted(){
-    if (this.$route.path === '/')
- {this.$router.push(`survey/color`);} 
- }
+  private mounted() {
+    if (this.$route.path === '/') { this.$router.push(`survey/color`); }
+  }
 }

@@ -8,6 +8,7 @@ export default class SurveyColor extends Vue {
   private colors: string[] = [];
   private selectedColor: string = '';
   private selectedColors: string[] = [];
+  private state: number = 0;
   private mounted() {
     for (let i = 0; i < 360; i++) {
       // hsb to rgb\
@@ -18,6 +19,11 @@ export default class SurveyColor extends Vue {
   private onClickColor(c) {
     this.selectedColor = c;
   }
+  private nextState() {
+    setTimeout(() => {
+      this.state++;
+    }, 0);
+  }
 
   private onSelect(e) {
     if (this.selectedColor === '') {
@@ -27,11 +33,11 @@ export default class SurveyColor extends Vue {
 
     if (this.selectedColors.length === 2) {
       this.$store.commit('setSelectedColors', this.selectedColors);
-
-      console.log(document.getElementById('shpaePage'));
-      document
-        .getElementById('shpaePage')
-        .scrollIntoView({ block: 'end', behavior: 'smooth' });
+      this.nextState();
+      // console.log(document.getElementById('shpaePage'));
+      // document
+      //   .getElementById('shpaePage')
+      //   .scrollIntoView({ block: 'end', behavior: 'smooth' });
       // this.$router.push('/survey/shape');
     } else {
       this.selectedColor = '';
@@ -44,7 +50,14 @@ export default class SurveyColor extends Vue {
   }
   private HSVtoRGB(h, s, v) {
     // @ts-ignore
-    let r, g, b, i, f, p, q, t;
+    let r = 0;
+    let g = 0;
+    let b = 0;
+    let i = 0;
+    let f = 0;
+    let p = 0;
+    let q = 0;
+    let t = 0;
     if (arguments.length === 1) {
       (s = h.s), (v = h.v), (h = h.h);
     }
