@@ -1,14 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Survey from '@/views/survey';
+import SurveyColor from '@/views/survey/color';
+import SurveyShape from '@/views/survey/shape';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'survey',
-    component: Survey,
+    path: '/survey/color',
+    name: 'survey-color',
+    component: SurveyColor,
+  },
+  {
+    path: '/survey/shape',
+    name: 'survey-shape',
+    component: SurveyShape,
   },
 ];
 
