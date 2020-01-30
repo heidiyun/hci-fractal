@@ -1,4 +1,3 @@
-
 import * as p5 from 'p5';
 
 export interface FractalOption {
@@ -14,18 +13,17 @@ export interface FractalOption {
   height: number;
 }
 export default class FractalGenerator {
-
   private option: FractalOption = {
     depthCount: 3,
     startColor: '#ff0000',
     endColor: '#ffff00',
-    branchCount: 3,
-    childCount: 4,
-    childAngle: 30,
+    branchCount: 2,
+    childCount: 3,
+    childAngle: 10,
     childLengthRatio: 0.7,
     width: 100,
     height: 100,
-    branchLength: 100,
+    branchLength: 100
   };
 
   private p: p5;
@@ -62,36 +60,47 @@ export default class FractalGenerator {
     return {
       r: r1 * (1 - lerpValue) + r2 * lerpValue,
       g: g1 * (1 - lerpValue) + g2 * lerpValue,
-      b: b1 * (1 - lerpValue) + b2 * lerpValue,
+      b: b1 * (1 - lerpValue) + b2 * lerpValue
     };
   }
 
-  private drawLine(x1: number, y1: number, degree: number, dist: number, depth: number) {
-    if (depth > this.option.depthCount) { return; }
+  private drawLine(
+    x1: number,
+    y1: number,
+    degree: number,
+    dist: number,
+    depth: number
+  ) {
+    if (depth > this.option.depthCount) {
+      return;
+    }
 
-    const radian = degree / 180 * Math.PI;
+    const radian = (degree / 180) * Math.PI;
     const x2 = x1 + Math.cos(radian) * dist;
     const y2 = y1 + Math.sin(radian) * dist;
     const c = this.lerpColor(
       this.option.startColor,
       this.option.endColor,
-      (depth - 1) / this.option.depthCount);
+      (depth - 1) / this.option.depthCount
+    );
 
     const a = (1 - depth / this.option.depthCount) * 235 + 20;
-
 
     this.p.stroke(c.r, c.g, c.b, a);
     this.p.strokeWeight(1);
     this.p.line(x1, y1, x2, y2);
 
     // var childCount = 2; // temp
-    const initAngle = degree - ((this.option.childCount - 1)
-      * this.option.childAngle) / 2;
+    const initAngle =
+      degree - ((this.option.childCount - 1) * this.option.childAngle) / 2;
     for (let i = 0; i < this.option.childCount; i++) {
-      this.drawLine(x2, y2,
+      this.drawLine(
+        x2,
+        y2,
         initAngle + i * this.option.childAngle,
-        dist * this.option.childLengthRatio, depth + 1);
+        dist * this.option.childLengthRatio,
+        depth + 1
+      );
     }
   }
-
 }

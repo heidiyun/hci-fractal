@@ -20,7 +20,7 @@
   position: fixed;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .5s, transform .5s;
+  transition: opacity 0.5s, transform 0.5s;
   transform: translate(0, 10vh) scale(0.93);
 
   &[end] {
@@ -33,6 +33,16 @@
     pointer-events: all;
   }
 
+  .slider {
+    width: 100%;
+    position: absolute;
+    top: 40vh;
+  }
+
+  .canvas {
+    position: absolute;
+    top: 50vh;
+  }
 
   .survey-question {
     width: 100%;
@@ -68,9 +78,7 @@
       height: 30%;
     }
   }
-
 }
-
 
 .second-color-container {
   width: 100%;

@@ -4,13 +4,7 @@
       <div class="fractal-controller-item">
         <div class="fractal-controller-item-label">Shape</div>
         <div class="fractal-controller-item-input">
-          <v-slider
-            thumb-label
-            hide-details
-            :min="4"
-            :max="20"
-            v-model="option.branchCount"
-          ></v-slider>
+          <v-slider thumb-label hide-details :min="1" :max="20" v-model="option.branchCount"></v-slider>
         </div>
       </div>
       <div class="fractal-controller-item">
