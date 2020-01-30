@@ -15,7 +15,7 @@ export default class SurveyColor extends Vue {
   private state: number = 0;
   private p!: p5;
   private branchAngle = 30;
-  private branchCount = 8;
+  private branchCount = 3;
   private shapeValue = 4;
   private value = 9;
 
@@ -36,7 +36,7 @@ export default class SurveyColor extends Vue {
       this.polygon(
         this.$refs.container.clientWidth / 2,
         this.$refs.container.clientHeight / 4 + 50,
-        200,
+        this.$refs.container.clientWidth / 10,
         this.shapeValue
       );
     } else if (this.state === 2) {
@@ -103,7 +103,7 @@ export default class SurveyColor extends Vue {
     );
     this.p.translate(
       this.$refs.container.clientWidth / 2,
-      this.$refs.container.clientHeight / 4 + 100
+      this.$refs.container.clientHeight / 4 + 30
     );
     this.p.fill(255, 255, 255, 127);
     this.p.stroke(255, 255, 255);
@@ -113,14 +113,14 @@ export default class SurveyColor extends Vue {
 
       this.p.line(
         this.$refs.container.clientWidth / 20,
-        this.$refs.container.clientHeight / 4,
+        this.$refs.container.clientHeight / 6,
         Math.cos(this.p.TWO_PI / this.branchCount),
         Math.sin(this.p.TWO_PI / this.branchCount)
       );
       this.p.strokeWeight(15);
       this.p.point(
         this.$refs.container.clientWidth / 20,
-        this.$refs.container.clientHeight / 4
+        this.$refs.container.clientHeight / 6
       );
 
       this.p.strokeWeight(1);

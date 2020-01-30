@@ -36,6 +36,11 @@ export default class Fractal extends Vue {
     this.p5 = p5;
     this.initialize();
   }
+
+  private save() {
+    this.p5.save();
+  }
+
   private mounted() {
     this.initialize();
   }

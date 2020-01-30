@@ -58,7 +58,7 @@
       <v-slider
         class="slider"
         v-model="branchCount "
-        min="4"
+        min="2"
         max="15"
         step="1"
         thumb-label="always"
