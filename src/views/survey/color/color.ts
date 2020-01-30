@@ -12,7 +12,7 @@ export default class SurveyColor extends Vue {
   private colors: string[] = [];
   private selectedColor: string = '';
   private selectedColors: string[] = [];
-  private state: number = 1;
+  private state: number = 0;
   private p!: p5;
   private branchAngle = 30;
   private branchCount = 8;
