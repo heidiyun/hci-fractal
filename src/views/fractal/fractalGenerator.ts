@@ -37,6 +37,7 @@ export default class FractalGenerator {
   public generate(option?: Partial<FractalOption>) {
     this.option = Object.assign(this.option, option);
     this.p.background(0);
+
     const createCount = this.option.branchCount * 1;
     const diffAngle = 360 / createCount;
     for (let i = 0; i < createCount; i++) {
@@ -87,7 +88,7 @@ export default class FractalGenerator {
     const a = (1 - depth / this.option.depthCount) * 235 + 20;
 
     this.p.stroke(c.r, c.g, c.b, a);
-    this.p.strokeWeight(1);
+    this.p.strokeWeight(3);
     this.p.line(x1, y1, x2, y2);
 
     // var childCount = 2; // temp

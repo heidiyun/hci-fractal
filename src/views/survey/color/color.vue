@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="page" :show="state === 1" :end="state > 1">
-      <h1 class="survey-question">Select fractal shape what you want</h1>
+      <h1 class="survey-question">Select what you want</h1>
       <v-slider
         class="slider"
         v-model=" shapeValue "
@@ -54,7 +54,7 @@
       <vue-p5 class="canvas" v-if="state===1" v-on="this"></vue-p5>
     </div>
     <div class="page" :show="state === 2" :end="state > 2">
-      <h1 class="survey-question">Select fractal shape what you want</h1>
+      <h1 class="survey-question">Select what you want</h1>
       <v-slider
         class="slider"
         v-model="branchCount "
@@ -71,7 +71,7 @@
       <vue-p5 class="canvas" v-if="state===2" v-on="this"></vue-p5>
     </div>
     <div class="page" :show="state === 3" :end="state > 3">
-      <h1 class="survey-question">Select fractal shape what you want</h1>
+      <h1 class="survey-question">Select what you want</h1>
       <v-slider class="slider" v-model="branchAngle " min="30" max="120" step="1" ticks></v-slider>
       <v-btn @click="nextStep" large icon color="white" style="position:absolute; right:10px;">
         <v-icon>mdi-arrow-right-thick</v-icon>
