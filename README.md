@@ -24,8 +24,12 @@
 ### 결과화면2
 ![image](https://user-images.githubusercontent.com/38517815/94945642-f05cd580-0515-11eb-98f4-06d7aaac8a16.png)
 ### 결과화면3
-![image](https://user-images.githubusercontent.com/38517815/94945650-f2269900-0515-11eb-822b-7b7debf40314.png)
+![image](https://user-images.githubusercontent.com/38517815/94945956-6bbe8700-0516-11eb-88ee-adc904c91c1c.png)
 
+## 개발환경
+* Vue.js
+* Typescript
+* p5.js
 
 
 
