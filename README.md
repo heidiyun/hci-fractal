@@ -10,7 +10,7 @@
 * 생성된 fractal을 보여주고 이미지로 다운 받을 수 있음.
 
 ## 사이트 링크
-[Fractal Generator 사이트 링크](https://fractal-e2fa7.web.app/survey/color)
+[https://fractal-e2fa7.web.app/survey/color](https://fractal-e2fa7.web.app/survey/color)
 
 ## 개발환경
 * Vue.js
